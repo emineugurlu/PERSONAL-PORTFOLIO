@@ -28,12 +28,51 @@ html{
     width: 6rem;
     height: 6rem;
     border: 0.1rem solid #c7a622;
-   
+    animation:mouseCircleAnim 10s infinite linear;  
+}
+
+@keyframes mouseCircleAnim{
+    0%{
+        width: 6rem;
+        height: 6rem;
+    }
+    25%{
+        width: 8rem;
+        height: 8rem;
+    }
+    35%{
+        width: 4rem;
+        height: 4rem;
+    }
+    70%{
+        width: 8rem;
+        height: 8rem;
+    }
+    100%{
+        width: 6rem;
+        height: 6rem;
+    }
 }
 .mouse-dot{
     width: .5rem;
     height: .5rem;
     background-color:#9b0e0e ;
+    animation: mouseDotAnim 10s infinite linear;
+}
+
+@keyframes mouseDotAnim{
+    0%{
+        width: .5rem;
+        height: .5rem;
+    }
+    55%{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    100%{
+        width: 0.5rem;
+        height: 0.5rem;
+    }
 }
 /*Enf Of Mouse Circle*/
 
