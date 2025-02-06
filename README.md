@@ -15,8 +15,8 @@ JavaScript (DOM Manipulation, Event Listeners)
 
 📧 Contact
 📍 Emine Uğurlu
-📩 Email: [Your emineugurlu957@gmail.com
-📱 https://medium.com/@emineugurlu957
-📱https://www.linkedin.com/in/emine-ugurlu
-📱https://www.instagram.com/emine__ugurlu__/
+📩 Email: emineugurlu957@gmail.com
+📱 Medium: https://medium.com/@emineugurlu957
+📱 Linkendin: https://www.linkedin.com/in/emine-ugurlu
+📱 Instagram : https://www.instagram.com/emine__ugurlu__/
 
