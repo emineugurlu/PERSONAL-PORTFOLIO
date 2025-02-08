@@ -93,3 +93,72 @@ Array.from(aboutMeTextContent).forEach(char => {
         e.target.style.animation = "aboutMeTextAnim 10s infinite"; 
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector('.container');
+    const projects = document.querySelectorAll(".project");
+    const projectHidenBtn = document.querySelector(".project-hiden-btn");
+
+    projects.forEach(project => {
+        const img = project.querySelector("img");
+
+        if (!img) return;
+
+        project.addEventListener("mouseenter", () => {
+            img.style.top = `-${img.offsetHeight - project.offsetHeight}px`;
+        });
+
+        project.addEventListener("mouseleave", () => {
+            img.style.top = "0px";
+        });
+
+        project.addEventListener('click', () => {
+            // Büyük resim wrapper'ını oluştur
+            const bigImgWrapper = document.createElement("div");
+            bigImgWrapper.className = "project-img-wrapper";
+
+            // Kapatma butonunu ekle
+            const closeButton = document.createElement("span");
+            closeButton.innerText = "X";
+            closeButton.className = "close-btn";
+            bigImgWrapper.appendChild(closeButton);
+
+            // Resim kaynağını al ve yeni resim oluştur
+            const imgPath = project.querySelector("img").getAttribute("src").split(".")[0];
+            const bigImg = document.createElement("img");
+            bigImg.className = "project-img";
+            bigImg.setAttribute("src", `${imgPath}-big.png`);
+
+            // Resmi wrapper'a ekle
+            bigImgWrapper.appendChild(bigImg);
+            document.body.appendChild(bigImgWrapper);
+
+            // Kapatma işlemi
+            closeButton.addEventListener('click', () => {
+                bigImgWrapper.remove();
+            });
+
+            // Wrapper'a tıklanınca kapatma
+            bigImgWrapper.addEventListener('click', (event) => {
+                if (event.target === bigImgWrapper) {
+                    bigImgWrapper.remove();
+                }
+            });
+
+            // Sayfanın kaydırmasını engelle
+            document.body.style.overflowY = "hidden";
+            projectHidenBtn.classList.add("change");
+
+            // Project hide butonuna tıklama işlevi
+            projectHidenBtn.onclick = () => {
+                projectHidenBtn.classList.remove("change");
+                bigImgWrapper.remove();  // Resmi kaldır
+                document.body.style.overflowY = "scroll"; // Kaydırmayı aç
+            };
+        });
+    });
+});
+
+
+
+

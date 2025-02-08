@@ -367,8 +367,107 @@ html{
 .section-3{
     width: 100%;
     height: 100%;
-    padding: 20rem 0 10rem 0;
+    padding: 10rem 0 ;
+    margin-top: 10rem;
     position: relative;
 
 }
+/*Project*/
+.projects{
+    flex-wrap: wrap;
+    padding-bottom: 15rem;
+}
+
+.project{
+    width: 40rem;
+    height: 45rem;
+    overflow: hidden;
+    margin: 5rem;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border: 0.2rem dotted #9b0e0e;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+}
+
+.project img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    position: absolute;
+    top: 2rem;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+/*Big Project Image*/
+.project-img-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,0,0.9);
+    overflow:hidden scroll;
+    animation: imgwrapperAnim 1s forwards;
+}
+
+@keyframes imgwrapperAnim{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+}
+
+.project-img{
+    width:100%;
+    border-radius: 0.5rem;
+    padding: 7rem 20rem;
+    opacity: 0.9;
+    transform-origin: top center;
+    animation: imgAnim 1s 1s both;
+
+}
+
+@keyframes imgAnim{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+/*End Of Big Project Image*/
+/*Project Hide Button*/
+.project-hiden-btn{
+    position: fixed;
+    top: 5rem;
+    right: 5rem;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    z-index: 10;
+    transform: scale(0);
+    visibility: hidden;
+}
+.change.project-hiden-btn{
+    transform: scale(1);
+    visibility: visible;
+    transition: transform 0.5s;
+
+}
+
+
+
+
+/*End Of Project Hide Button*/
+/*End Of Project*/
 /*End Of Section 3*/
