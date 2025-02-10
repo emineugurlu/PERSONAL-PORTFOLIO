@@ -397,6 +397,22 @@ html{
     perspective:20rem ;
 
 }
+.project .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 16px;
+    opacity: 0; /* Başlangıçta gizli */
+    transition: opacity 0.3s ease; /* Geçiş efekti */
+    font-family: 'Poppins',sans-serif;
+}
+.project:hover .hover-text {
+    opacity: 1; /* Üzerine gelindiğinde görünür */
+}
 
 .project img{
     width: 90%;
