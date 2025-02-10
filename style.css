@@ -390,6 +390,7 @@ html{
     border: 0.2rem dotted #9b0e0e;
     border-radius: 0.5rem;
     cursor: pointer;
+    perspective:20rem ;
 
 }
 
@@ -399,51 +400,43 @@ html{
     object-fit: cover;
     position: absolute;
     top: 2rem;
-    transition: transform 0.3s ease-out;
+    transition: top 4s 0.2s, opacity;
     will-change: transform;
 }
 
 /*Big Project Image*/
-.project-img-wrapper{
+.project-img-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 0;
-    background-color: rgba(0,0,0,0.9);
-    overflow:hidden scroll;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    display: flex;  /* Flexbox ekledik */
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
     animation: imgwrapperAnim 1s forwards;
 }
 
-@keyframes imgwrapperAnim{
-    0%{
+@keyframes imgwrapperAnim {
+    0% {
         height: 0;
     }
-    100%{
+    100% {
         height: 100%;
     }
 }
 
-.project-img{
-    width:100%;
+.project-video {
+    max-width: 70%;
+    max-height: auto;
+    object-fit: contain;
     border-radius: 0.5rem;
-    padding: 7rem 20rem;
     opacity: 0.9;
-    transform-origin: top center;
-    animation: imgAnim 1s 1s both;
-
+    animation: videoAnim 1s 1s both;
 }
 
-@keyframes imgAnim{
-    0%{
-        transform: scale(0);
-    }
-    100%{
-        transform: scale(1);
-    }
-}
-/*End Of Big Project Image*/
-/*Project Hide Button*/
 .project-hiden-btn{
     position: fixed;
     top: 5rem;

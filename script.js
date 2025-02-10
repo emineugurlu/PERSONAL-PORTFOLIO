@@ -97,23 +97,20 @@ Array.from(aboutMeTextContent).forEach(char => {
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector('.container');
     const projects = document.querySelectorAll(".project");
+    
     const projectHidenBtn = document.querySelector(".project-hiden-btn");
 
-    projects.forEach(project => {
-        const img = project.querySelector("img");
+    projects.forEach(project=> {
+        const img = project.querySelector("img"); // Resmi alıyoruz.
 
-        if (!img) return;
+        if (!img) return; // Eğer resim yoksa, işlem yapma.
 
-        project.addEventListener("mouseenter", () => {
-            img.style.top = `-${img.offsetHeight - project.offsetHeight}px`;
-        });
+       
+      
 
-        project.addEventListener("mouseleave", () => {
-            img.style.top = "0px";
-        });
 
         project.addEventListener('click', () => {
-            // Büyük resim wrapper'ını oluştur
+            // Büyük video wrapper'ını oluştur
             const bigImgWrapper = document.createElement("div");
             bigImgWrapper.className = "project-img-wrapper";
 
@@ -123,39 +120,50 @@ document.addEventListener("DOMContentLoaded", () => {
             closeButton.className = "close-btn";
             bigImgWrapper.appendChild(closeButton);
 
-            // Resim kaynağını al ve yeni resim oluştur
+            // Resim kaynağını al ve yeni video oluştur
             const imgPath = project.querySelector("img").getAttribute("src").split(".")[0];
-            const bigImg = document.createElement("img");
-            bigImg.className = "project-img";
-            bigImg.setAttribute("src", `${imgPath}-big.png`);
+            const video = document.createElement("video");
+            video.className = "project-video";
+            video.setAttribute("src", `${imgPath}-big.mp4`);
+            video.setAttribute("controls", "true");
+            video.setAttribute("autoplay", "true");  // **Otomatik oynatma**
+            video.setAttribute("muted", "true");  // **Tarayıcı engellememesi için ses kapalı**
+            video.setAttribute("loop", "true");  // **Videonun tekrar başlaması için**
+            
+            // Eğer tarayıcı engellerse elle oynatmayı zorla
+            video.play().catch(error => console.log("Otomatik oynatma engellendi:", error));
 
-            // Resmi wrapper'a ekle
-            bigImgWrapper.appendChild(bigImg);
+            // Videoyu wrapper'a ekle
+            bigImgWrapper.appendChild(video);
             document.body.appendChild(bigImgWrapper);
+
+            // Sayfanın kaydırmasını engelle
+            document.body.style.overflowY = "hidden";
+            projectHidenBtn.classList.add("change");
 
             // Kapatma işlemi
             closeButton.addEventListener('click', () => {
                 bigImgWrapper.remove();
+                document.body.style.overflowY = "scroll"; // Kaydırmayı aç
             });
 
             // Wrapper'a tıklanınca kapatma
             bigImgWrapper.addEventListener('click', (event) => {
                 if (event.target === bigImgWrapper) {
                     bigImgWrapper.remove();
+                    document.body.style.overflowY = "scroll";
                 }
             });
-
-            // Sayfanın kaydırmasını engelle
-            document.body.style.overflowY = "hidden";
-            projectHidenBtn.classList.add("change");
 
             // Project hide butonuna tıklama işlevi
             projectHidenBtn.onclick = () => {
                 projectHidenBtn.classList.remove("change");
-                bigImgWrapper.remove();  // Resmi kaldır
-                document.body.style.overflowY = "scroll"; // Kaydırmayı aç
+                bigImgWrapper.remove();
+                document.body.style.overflowY = "scroll";
             };
         });
+
+        
     });
 });
 
