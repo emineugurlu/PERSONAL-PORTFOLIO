@@ -121,21 +121,35 @@ document.addEventListener("DOMContentLoaded", () => {
             bigImgWrapper.appendChild(closeButton);
 
             // Resim kaynağını al ve yeni video oluştur
-            const imgPath = project.querySelector("img").getAttribute("src").split(".")[0];
-            const video = document.createElement("video");
-            video.className = "project-video";
-            video.setAttribute("src", `${imgPath}-big.mp4`);
-            video.setAttribute("controls", "true");
-            video.setAttribute("autoplay", "true");  // **Otomatik oynatma**
-            video.setAttribute("muted", "true");  // **Tarayıcı engellememesi için ses kapalı**
-            video.setAttribute("loop", "true");  // **Videonun tekrar başlaması için**
-            
-            // Eğer tarayıcı engellerse elle oynatmayı zorla
-            video.play().catch(error => console.log("Otomatik oynatma engellendi:", error));
+           // Resim kaynağını al ve yeni video oluştur
+const imgPath = project.querySelector("img").getAttribute("src").split(".")[0];
+const video = document.createElement("video");
+video.className = "project-video";
+video.setAttribute("src", `${imgPath}-big.mp4`);
+video.setAttribute("controls", "true");
+video.setAttribute("muted", "true");  // Tarayıcı engellememesi için ses kapalı
+video.setAttribute("loop", "true");   // Videonun tekrar başlaması için
 
-            // Videoyu wrapper'a ekle
-            bigImgWrapper.appendChild(video);
-            document.body.appendChild(bigImgWrapper);
+// Videoyu oluşturduktan sonra, ilk başta oynatmaya çalış
+video.play().catch(error => {
+    console.log("Otomatik oynatma engellendi:", error);
+    
+    // Eğer otomatik oynatma engellenirse, kullanıcı etkileşimi ile başlatmayı sağla
+    const playButton = document.createElement("button");
+    playButton.textContent = "Play Video";
+    bigImgWrapper.appendChild(playButton);
+
+    // Play butonuna tıklanabilir hale getir
+    playButton.addEventListener("click", () => {
+        video.play().catch(playError => console.log("Video oynatılırken hata:", playError));
+        playButton.style.display = "none";  // Butonu gizle
+    });
+});
+
+// Videoyu wrapper'a ekle
+bigImgWrapper.appendChild(video);
+document.body.appendChild(bigImgWrapper);
+
 
             // Sayfanın kaydırmasını engelle
             document.body.style.overflowY = "hidden";
@@ -167,6 +181,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+//Section 4
+document.querySelectorAll(".service-btn").forEach(service => {
+    service.addEventListener('click', e => {
+        e.preventDefault();
+
+        const serviceText = service.nextElementSibling;
+        serviceText.classList.toggle("change");
+    });
+});
+
+//End Of Section 4
 
 
 

@@ -114,6 +114,21 @@ html{
     opacity: 0;
     pointer-events: none;
 }
+
+.section-heading{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 10rem;
+    transform: translateY(-50%);
+    width: 0;
+    word-break: break-all;
+    line-height: 4;
+
+}
 .mouse-circle{
     width: 6rem;
     height: 6rem;
@@ -149,6 +164,8 @@ html{
     background-color:#9b0e0e ;
     animation: mouseDotAnim 10s infinite linear;
 }
+
+
 
 @keyframes mouseDotAnim{
     0%{
@@ -304,20 +321,7 @@ html{
     padding: 10rem 10rem 15rem 10rem;
 }
 /*Section 2 Heading*/
-.section-2-heading{
-    font-size: 2rem;
-    font-weight: 300;
-    color: #fff;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 10rem;
-    transform: translateY(-50%);
-    width: 0;
-    word-break: break-all;
-    line-height: 4;
 
-}
 /*End Of Section 2 Heading*/
 /*About Me Text*/
 .about-me-text{
@@ -379,8 +383,8 @@ html{
 }
 
 .project{
-    width: 40rem;
-    height: 45rem;
+    width: 30rem;
+    height: 35rem;
     overflow: hidden;
     margin: 5rem;
     background-color: #000;
@@ -457,10 +461,60 @@ html{
     transition: transform 0.5s;
 
 }
-
-
-
-
 /*End Of Project Hide Button*/
 /*End Of Project*/
 /*End Of Section 3*/
+
+/*Section 4*/
+.section-4{
+    position: relative;
+    width: 100%;
+    bottom: 10rem;
+    
+}
+
+/*Services*/
+.services-wrapper{
+    width: 100%;
+    flex-direction: column;
+}
+
+.service{
+    width: 70%;
+    margin: 2rem 0;
+    border-bottom:0.5rem solid #9b0e0e ;
+
+}
+.service-btn{
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 15rem;
+}
+.service-btn span{
+    font-family: "Poppins",sans-serif;
+    font-size: 10rem;
+    font-style: italic;
+    font-weight: bold;
+    color: #9b0e0e;
+    position: absolute;
+    right: 0;
+
+}
+
+.service-text{
+    font-size: 5rem;
+    color: #777;
+    letter-spacing: 0.1rem;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.change.service-text{
+height: 15rem;
+visibility:visible ;
+opacity: 1;
+}
+/*End Services*/
+/*End Of Section 4*/
