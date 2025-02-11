@@ -189,10 +189,65 @@ document.querySelectorAll(".service-btn").forEach(service => {
 
         const serviceText = service.nextElementSibling;
         serviceText.classList.toggle("change");
+
+        const rightPosition = serviceText.classList.contains('change') 
+         ? `calc(100% - ${getComputedStyle(service.firstElementChild).width})`
+         : 0;
+
+        service.firstElementChild.style.right = rightPosition;
     });
 });
 
 //End Of Section 4
 
+
+//Section 5
+//Form
+const formHeading = document.querySelector('.form-heading');
+const formInputs = document.querySelectorAll('.contact-form-input');
+
+formInputs.forEach(input => {
+    input.addEventListener('focus', () => {
+        formHeading.style.opacity = "0";
+        setTimeout(() => {
+            formHeading.textContent = `Your ${input.placeholder}`;
+            formHeading.style.opacity = "1";
+        }, 300); // Focus sırasında gecikme
+    });
+
+    input.addEventListener('blur', () => {
+        formHeading.style.opacity = "0";
+        setTimeout(() => {
+            formHeading.textContent = `Let's Talk`;
+            formHeading.style.opacity = "1";
+        }, 300); // Blur sırasında gecikme
+    });
+});
+
+//End Of Form
+//Slideshow
+const slideshow = document.querySelector('.slideshow'); // Doğru değişken adı
+
+setInterval(() => {
+    const firstIcon = slideshow.firstElementChild; // firstElementChild ile ilk öğeyi alıyoruz
+    if (firstIcon) {
+        firstIcon.classList.add('faded-out'); // İlk öğeye 'faded-out' sınıfını ekliyoruz
+
+        // 'faded-out' animasyonunun bitmesini bekleyebilirsiniz, örneğin:
+        setTimeout(() => {
+            slideshow.removeChild(firstIcon); // Animasyon bitince öğeyi kaldırıyoruz
+            slideshow.appendChild(firstIcon); // Aynı öğeyi sona ekliyoruz
+
+            setTimeout(() => {
+                firstIcon.classList.remove('faded-out'); // 'faded-out' sınıfını kaldırıyoruz
+            }, 500); // Bu süreyi animasyonun bitiş süresine göre ayarlayın
+        }, 500); // 'faded-out' animasyonunun süresine göre bu süreyi ayarlayın
+    }
+}, 3000);
+
+
+//End Of Slideshow
+
+//End Of Section 5
 
 

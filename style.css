@@ -328,6 +328,9 @@ html{
     width: 80%;
     margin: auto;
     
+    
+
+    
 }
 
 .about-me-text span{
@@ -340,6 +343,9 @@ html{
     text-shadow: 0 0 1rem #9b0e0e;
     position: relative;
     mix-blend-mode: color-dodge;
+    
+  
+
    
 }
 @keyframes aboutMeTextAnim{
@@ -515,6 +521,7 @@ html{
     color: #9b0e0e;
     position: absolute;
     right: 0;
+    transition: right 0.5s;
 
 }
 
@@ -536,3 +543,85 @@ transition: height 0.5s,opacity 0.5s;
 }
 /*End Services*/
 /*End Of Section 4*/
+
+/*Section 5*/
+.section-5{
+    position: relative;
+    height: 100vh; 
+    flex-direction: column;
+}
+
+/*Form*/
+.form-heading{
+    font-family: 'Poppins',sans-serif;
+    font-size: 6rem;
+    font-weight: 400;
+    color: #9b0e0e;
+    letter-spacing: 0.3rem;
+    margin-bottom: 3rem;
+    transition:opacity 0.3s ;
+}
+
+.contact-form{
+    flex-direction: column;
+}
+.contact-form-input{
+    width: 60rem;
+    padding:0.5rem ;
+    margin: 1rem 0;
+    background-color: rgba(255,255,255,0.1);
+    border: 0.1rem solid #9b0e0e;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #aaa;
+    letter-spacing: 0.1rem;
+    height: 5rem;
+}
+.contact-form-textara{
+    height: 20rem;
+    resize: none;
+}
+
+.form-submit-btn{
+    width: 20rem;
+    height: 5rem;
+    background-color: #9b0e0e;
+    border: none;
+    align-self: flex-start;
+    font-size: 1.8rem;
+    color: #fff;
+
+}
+/*End Of Form*/
+/*Slide Show*/
+.slideshow {
+    display: flex;
+    width: 50rem;
+    margin-top: 10rem;
+    padding: 0.2rem;
+    justify-content: center; /* Resimleri ortalar */
+    gap: 0.3rem; /* Aralarındaki boşluğu çok az bir şekilde azaltır */
+}
+
+.slideshow-link {
+    width: 11%; /* Resimler arasındaki boşluğu azaltmak için daha küçük genişlik */
+}
+.slideshow-link:nth-child(1),
+.slideshow-link:nth-child(5){
+   transition: width 0.5s, opacity 0.5s;
+}
+.slideshow-link img {
+    max-width: 50px; /* Resmin genişliği 50px ile sınırlı */
+    max-height: 50px; /* Resmin yüksekliği 50px ile sınırlı */
+    object-fit: cover; /* Resmi orantılı şekilde keserek dolmasını sağlar */
+    border-radius: 50%; /* Yuvarlak şekil */
+    padding: 0.1rem;
+}
+
+.faded-out{
+    opacity: 0;
+    width: 0;
+}
+
+/*End Of Slide Show*/
+/*End Of Section 5*/
