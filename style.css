@@ -605,10 +605,16 @@ transition: height 0.5s,opacity 0.5s;
 
 .slideshow-link {
     width: 11%; /* Resimler arasındaki boşluğu azaltmak için daha küçük genişlik */
+    filter:brightness(0.5) ;
+    transition: filter 1.5s;
 }
+
 .slideshow-link:nth-child(1),
 .slideshow-link:nth-child(5){
    transition: width 0.5s, opacity 0.5s;
+}
+.slideshow-link:nth-child(3){
+    transition:filter 0.5s ;
 }
 .slideshow-link img {
     max-width: 50px; /* Resmin genişliği 50px ile sınırlı */
@@ -621,6 +627,10 @@ transition: height 0.5s,opacity 0.5s;
 .faded-out{
     opacity: 0;
     width: 0;
+}
+
+.light{
+    filter: brightness(1.5);
 }
 
 /*End Of Slide Show*/

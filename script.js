@@ -226,24 +226,31 @@ formInputs.forEach(input => {
 
 //End Of Form
 //Slideshow
-const slideshow = document.querySelector('.slideshow'); // Doğru değişken adı
+const slideshow = document.querySelector('.slideshow');
 
 setInterval(() => {
-    const firstIcon = slideshow.firstElementChild; // firstElementChild ile ilk öğeyi alıyoruz
+    const firstIcon = slideshow.firstElementChild;
     if (firstIcon) {
-        firstIcon.classList.add('faded-out'); // İlk öğeye 'faded-out' sınıfını ekliyoruz
+        firstIcon.classList.add('faded-out'); // İlk öğeyi sönük hale getir
 
-        // 'faded-out' animasyonunun bitmesini bekleyebilirsiniz, örneğin:
         setTimeout(() => {
-            slideshow.removeChild(firstIcon); // Animasyon bitince öğeyi kaldırıyoruz
-            slideshow.appendChild(firstIcon); // Aynı öğeyi sona ekliyoruz
+            slideshow.removeChild(firstIcon);
+            slideshow.appendChild(firstIcon);
+            firstIcon.classList.remove('faded-out'); // Kaydırdıktan sonra eski haline getir
+        }, 500);
+    }
 
-            setTimeout(() => {
-                firstIcon.classList.remove('faded-out'); // 'faded-out' sınıfını kaldırıyoruz
-            }, 500); // Bu süreyi animasyonun bitiş süresine göre ayarlayın
-        }, 500); // 'faded-out' animasyonunun süresine göre bu süreyi ayarlayın
+    // **Tüm öğelerden 'light' sınıfını kaldır**  
+    Array.from(slideshow.children).forEach(child => child.classList.remove('light'));
+
+    // **Ortadaki öğeye 'light' ekle**
+    const middleIndex = Math.floor(slideshow.children.length / 2);
+    const middleIcon = slideshow.children[middleIndex];
+    if (middleIcon) {
+        middleIcon.classList.add('light'); // Ortaya gelen her öğe parlayacak!
     }
 }, 3000);
+
 
 
 //End Of Slideshow
