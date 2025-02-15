@@ -203,6 +203,7 @@ html{
     background-color: #fff;
     border-radius: 50%;
     z-index: 200;
+    overflow: hidden;
 }
 .half-circle,
 .half-circle-top{
@@ -216,16 +217,17 @@ html{
 }
 
 .half-circle:nth-child(1){
-    background-color: green;
+    background-color: #b60000;
 }
 .half-circle:nth-child(2){
-    background-color: blue;
+    background-color: #b60000;
 }
 .half-circle-top{
-    background-color: orange;
+    background-color: #fff;
 }
-.progess-bar:hover .half-circle-top{
+/* .progess-bar:hover .half-circle-top{
     opacity: 0;
+    transition: opacity 0s 1s;
 }
 .progess-bar:hover .half-circle:nth-child(1) {
     transform: rotate(180deg);
@@ -234,7 +236,7 @@ html{
 .progess-bar:hover .half-circle:nth-child(2) {
     transform: rotate(360deg);
     transition: transform 2s linear;
-}
+} */
 .progess-bar-circle{
     width: 7.8rem;
     height: 7.8rem;
@@ -242,7 +244,8 @@ html{
     border-radius: 50%;
     color:#fff ;
     font-size:4rem ;
-    display: none;
+    z-index: 200;
+    
 }
 
 /*End Of Progress Bar*/
