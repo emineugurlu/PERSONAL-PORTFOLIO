@@ -94,6 +94,37 @@ Array.from(aboutMeTextContent).forEach(char => {
     });
 });
 
+// Navigation
+const menuIcon = document.querySelector('.menu-icon');
+const navbar = document.querySelector('.navbar');
+
+if (menuIcon && navbar) {  // Elemanların olup olmadığını kontrol et
+    document.addEventListener('scroll', () => {
+        if (window.scrollY > 50) { // 50px’den fazla kaydırıldıysa
+            menuIcon.classList.add('show-menu-icon');
+            navbar.classList.add('hide-navbar');
+        } else { // Sayfanın en üstüne dönüldüyse navbar'ı geri aç
+            menuIcon.classList.remove('show-menu-icon');
+            navbar.classList.remove('hide-navbar');
+        }
+    });
+} else {
+    console.error("menu-icon veya navbar bulunamadı!");
+}
+
+// Menü ikona tıklanınca navbar'ı tekrar göster
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.remove('show-menu-icon');
+    navbar.classList.remove('hide-navbar');
+});
+
+
+// End of Navigation
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector('.container');
     const projects = document.querySelectorAll(".project");

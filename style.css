@@ -193,6 +193,122 @@ html{
 }
 /* End Of Page Backgraound*/
 
+/*Progress Bar*/
+.progess-bar{
+    position: fixed;
+    bottom: 1rem;
+    right: 8rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 200;
+}
+.half-circle,
+.half-circle-top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transform-origin: right center;
+
+}
+
+.half-circle:nth-child(1){
+    background-color: green;
+}
+.half-circle:nth-child(2){
+    background-color: blue;
+}
+.half-circle-top{
+    background-color: orange;
+}
+.progess-bar:hover .half-circle-top{
+    opacity: 0;
+}
+.progess-bar:hover .half-circle:nth-child(1) {
+    transform: rotate(180deg);
+    transition: transform 1s linear;
+}
+.progess-bar:hover .half-circle:nth-child(2) {
+    transform: rotate(360deg);
+    transition: transform 2s linear;
+}
+.progess-bar-circle{
+    width: 7.8rem;
+    height: 7.8rem;
+    background-color: #000;
+    border-radius: 50%;
+    color:#fff ;
+    font-size:4rem ;
+    display: none;
+}
+
+/*End Of Progress Bar*/
+
+/*Navigation*/
+/*Menu Icon*/
+.menu-icon{
+    position: fixed;
+    top: 0;
+    right: 6rem;
+    width:12rem;
+    height: 7rem; 
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.menu-icon-line{
+    width: 4rem;
+    height: 0.1rem;
+    background-color: #fff;
+    margin:0.5rem 0 ;
+    box-shadow: 0.3rem 0.5rem #000;
+
+}
+
+.show-menu-icon{
+    opacity: 1;
+    visibility: visible;
+}
+/*End Of Menu Icon*/
+/*Navbar*/
+.navbar{
+    position: fixed;
+    top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 3rem;
+    z-index: 100;
+    transition: opacity 0.5s,visibility 0.5s, transform 0.5s ;
+}
+
+.navbar-link{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 2.5rem;
+    text-shadow: 0.3rem 0.5rem #000;
+}
+
+.hide-navbar{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10rem);
+}
+/*End Of Navbar*/
+/*End Of Navigation*/
+
+
+
+
 /*Section 1*/
 .section-1{
     position: relative;
