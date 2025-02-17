@@ -93,58 +93,69 @@ Array.from(aboutMeTextContent).forEach(char => {
         e.target.style.animation = "aboutMeTextAnim 10s infinite"; 
     });
 });
-const sections =document.querySelectorAll("section");
-const progressBar = document.querySelector('.progress-bar')
-const halfCircles = document.querySelectorAll('.half-circle');
-const halfCirclesTop = document.querySelectorAll('.half-circle-top');
-const progressBarCircle = document.querySelector('.progress-bar-circle');
 
-const progressBarFn = () => {
-    const pageViewportHeight = window.innerHeight;
-    const pageHeight = document.documentElement.scrollHeight;
-    const scrolledPortion = window.pageYOffset; // Düzeltildi
+//Progess Bar
+document.addEventListener("DOMContentLoaded", () => {
+    const progressBar = document.querySelector(".progess-bar");
+    const halfCircles = document.querySelectorAll(".half-circle");
+    const halfCirclesTop = document.querySelectorAll(".half-circle-top");
+    const progressBarCircle = document.querySelector(".progess-bar-circle");
 
-    const scrolledPortionDegree = (scrolledPortion / (pageHeight - pageViewportHeight)) * 360;
-    
-    // Yarım daireleri döndür
-    halfCircles.forEach(el => {
-        el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
-    });
-    
-    // Eğer 180 dereceyi geçtiyse ilk elemanı sabitle
-    if (scrolledPortionDegree >= 180) {
-        halfCircles[0].style.transform = "rotate(180deg)";
-    
-        // Tüm .half-circle-top elemanlarını gizle
-        halfCirclesTop.forEach(el => el.style.opacity = "0");
-    } else {
-        // .half-circle-top elemanlarını tekrar görünür yap
-        halfCirclesTop.forEach(el => el.style.opacity = "1");
+    if (!progressBarCircle) {
+        console.error("HATA: .progress-bar-circle elementi bulunamadı! HTML içinde doğru olduğundan emin olun.");
+        return; // Eğer öğe yoksa fonksiyonu çalıştırma.
     }
-    
-    const scrollBool = scrolledPortion + pageViewportHeight === pageHeight;
 
-    progressBar.onclick = e => {
-        e.preventDefault();
-    
-        const sectionPositions = Array.from(sections).map(section => {
-            return scrolledPortion + section.getBoundingClientRect().top;
+    let lastScrollY = window.scrollY; // Önceki scroll konumu
+
+    const progressBarFn = () => {
+        const pageViewportHeight = window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+        const scrolledPortion = window.scrollY;
+
+        // Sayfanın ne kadar kaydırıldığını hesapla (0 ile 360 derece arasında)
+        const scrolledPortionDegree = (scrolledPortion / (pageHeight - pageViewportHeight)) * 360;
+
+        // Yarım daireleri döndür
+        halfCircles.forEach(el => {
+            el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
         });
-    
-        const position = sectionPositions.find(sectionPosition => {
-            return sectionPosition > scrolledPortion;
-        });
-    
-        scrollBool ? window.scrollTo(0,0): window.scrollTo(0,position);
+
+        // Eğer 180 dereceyi geçtiyse ilk elemanı sabitle
+        if (scrolledPortionDegree >= 180) {
+            halfCircles[0].style.transform = "rotate(180deg)";
+            
+            // .half-circle-top elemanlarını gizle
+            halfCirclesTop.forEach(el => el.style.opacity = "0");
+        } else {
+            // .half-circle-top elemanlarını tekrar görünür yap
+            halfCirclesTop.forEach(el => el.style.opacity = "1");
+        }
+        const isAtBottom = scrolledPortion + pageViewportHeight >= pageHeight - 5;
+        
+        if (isAtBottom) {
+            // Sayfanın en altına gelindiğinde ok simgesini aşağıya döndür
+            progressBarCircle.style.transform = "rotate(180deg)";
+        } else if (scrolledPortion > lastScrollY) {
+            // Aşağı kaydırıyor -> Ok aşağıya döner
+            progressBarCircle.style.transform = "rotate(180deg)";
+        } else if (scrolledPortion < lastScrollY) {
+            // Yukarı kaydırıyor -> Ok yukarıya döner
+            progressBarCircle.style.transform = "rotate(0deg)";
+        }
+        lastScrollY = scrolledPortion; // Scroll konumunu güncelle
     };
 
-    //
-    
-};
+    // Scroll olayını dinle
+    window.addEventListener("scroll", progressBarFn);
+});
 
-// Sayfa kaydırıldığında progress bar fonksiyonunu çalıştır
-document.addEventListener('scroll', progressBarFn);
-progressBarFn();
+
+
+
+
+//End Of Progess Bar
+
 // Navigation
 const menuIcon = document.querySelector('.menu-icon');
 const navbar = document.querySelector('.navbar');
@@ -161,7 +172,7 @@ if (menuIcon && navbar) {
     });
 
     // İlk çalıştırma (sayfa yüklenirken)
-    progressBarFn();
+    
 } else {
     console.error("menu-icon veya navbar bulunamadı!");
 }
@@ -188,10 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = project.querySelector("img"); // Resmi alıyoruz.
 
         if (!img) return; // Eğer resim yoksa, işlem yapma.
-
-       
-      
-
 
         project.addEventListener('click', () => {
             // Büyük video wrapper'ını oluştur
@@ -310,6 +317,7 @@ formInputs.forEach(input => {
 
 //End Of Form
 //Slideshow
+
 const slideshow = document.querySelector('.slideshow');
 
 setInterval(() => {
@@ -340,5 +348,4 @@ setInterval(() => {
 //End Of Slideshow
 
 //End Of Section 5
-
 

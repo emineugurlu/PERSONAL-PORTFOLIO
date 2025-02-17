@@ -194,6 +194,7 @@ html{
 /* End Of Page Backgraound*/
 
 /*Progress Bar*/
+
 .progess-bar{
     position: fixed;
     bottom: 1rem;
@@ -213,7 +214,13 @@ html{
     width: 50%;
     height: 100%;
     transform-origin: right center;
+    
 
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .half-circle:nth-child(1){
@@ -245,6 +252,7 @@ html{
     color:#fff ;
     font-size:4rem ;
     z-index: 200;
+    transition: transform 0.5s ;
     
 }
 
@@ -557,7 +565,8 @@ html{
     width: 100%;
     height: 0;
     background-color: rgba(0, 0, 0, 0.9);
-    overflow: hidden;
+    overflow: hidden scroll;
+    z-index: 1000;
     display: flex;  /* Flexbox ekledik */
     justify-content: center; /* Yatayda ortala */
     align-items: center; /* Dikeyde ortala */
@@ -592,7 +601,7 @@ html{
     font-size: 2rem;
     letter-spacing: 0.1rem;
     cursor: pointer;
-    z-index: 10;
+    z-index: 1100;
     transform: scale(0);
     visibility: hidden;
 }
@@ -725,7 +734,7 @@ transition: height 0.5s,opacity 0.5s;
 .slideshow-link {
     width: 11%; /* Resimler arasındaki boşluğu azaltmak için daha küçük genişlik */
     filter:brightness(0.5) ;
-    transition: filter 1.5s;
+    transition: filter 1.5s,transform 1s;
 }
 
 .slideshow-link:nth-child(1),
@@ -741,10 +750,12 @@ transition: height 0.5s,opacity 0.5s;
     object-fit: cover; /* Resmi orantılı şekilde keserek dolmasını sağlar */
     border-radius: 50%; /* Yuvarlak şekil */
     padding: 0.1rem;
+    transition: transform 0.5s;
 }
 
 .faded-out{
     opacity: 0;
+    transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
     width: 0;
 }
 
