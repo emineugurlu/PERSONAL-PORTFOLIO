@@ -199,10 +199,15 @@
             <div class="form-wrapper">
                 <h2 class="form-heading">Let's Talk</h2>
                 <form class="contact-form center">
-                    <input type="text" class="contact-form-input" placeholder="Name">
-                    <input type="email" class="contact-form-input" placeholder="Email">
-                    <input type="text" class="contact-form-input" placeholder="Subject">
-                    <textarea class="contact-form-input contact-form-textara" placeholder="Message"></textarea>
+                    <input type="text" class="contact-form-input" placeholder="Name" id="name" autocomplete="off">
+                    <p class="message">Error Message</p>
+                    <input type="text" class="contact-form-input" placeholder="Email" id="email" autocomplete="off">
+                    <p class="message">Error Message</p>
+                    <input type="text" class="contact-form-input" placeholder="Subject" id="subject" autocomplete="off">
+                    <p class="message">Error Message</p>
+                    <textarea class="contact-form-input contact-form-textara" placeholder="Message" id="message" autocomplete="off">
+                    </textarea>
+                    <p class="message">Error Message</p>
                     <input type="submit" class="form-submit-btn" value="Send Request">
                 </form>
             </div>
