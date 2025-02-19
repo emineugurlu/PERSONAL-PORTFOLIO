@@ -40,11 +40,11 @@ Then, open the index.html file in your browser to view the project.
 If you have the Live Server extension, you can run the project with this command:
 npx live-server
 
-5️⃣ (Opsiyonel) Hosting Yapma
-Projeyi çevrimiçi yayınlamak için şu platformları kullanabilirsiniz:
+5️⃣ (Optional) Hosting
+You can host the project online using the following platforms:
 
-GitHub Pages → Settings > Pages sekmesinden etkinleştirebilirsiniz.
-Netlify / Vercel gibi platformlar üzerinden de host edebilirsiniz.
+GitHub Pages → Enable it from Settings > Pages.
+Platforms like Netlify or Vercel can also be used to host the project.
 
 ## 📸 Screenshots
 Here are some screenshots of my portfolio website:
