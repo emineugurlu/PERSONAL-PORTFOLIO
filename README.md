@@ -20,6 +20,32 @@ JavaScript (DOM Manipulation, Event Listeners)
 📱 Linkendin: https://www.linkedin.com/in/emine-ugurlu
 📱 Instagram : https://www.instagram.com/emine__ugurlu__/
 
+⚙️ Installation and Usage
+Follow the steps below to set up this project on your local machine:
+
+1️⃣ Clone the Project
+First, clone the project from GitHub:
+git clone https://github.com/emineugurlu/portfolio.git
+Or, you can download it as a ZIP file and extract it.
+
+2️⃣ Navigate to the Project Folder
+cd portfolio
+
+3️⃣ Open and Run the Files
+Open the project in a code editor (e.g., Visual Studio Code):
+code .
+Then, open the index.html file in your browser to view the project.
+
+4️⃣ (Optional) Run with Live Server
+If you have the Live Server extension, you can run the project with this command:
+npx live-server
+
+5️⃣ (Opsiyonel) Hosting Yapma
+Projeyi çevrimiçi yayınlamak için şu platformları kullanabilirsiniz:
+
+GitHub Pages → Settings > Pages sekmesinden etkinleştirebilirsiniz.
+Netlify / Vercel gibi platformlar üzerinden de host edebilirsiniz.
+
 ## 📸 Screenshots
 Here are some screenshots of my portfolio website:
 *Homepage of the portfolio website.*
